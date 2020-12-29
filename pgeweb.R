@@ -35,13 +35,13 @@ server <- function(input, output, session) {
     })
     
     observe({
-        updateSelectInput(session, "country1", choices = cc$country, selected = "United States")
+        updateSelectInput(session, "country1", choices = cc$country, selected = "Norway")
         
-        updateSelectInput(session, "country2", choices = c("select", cc$country), selected = "select")
+        updateSelectInput(session, "country2", choices = c("none", cc$country), selected = "United States")
         
-        updateSelectInput(session, "country3", choices = c("select", cc$country), selected = "select")
+        updateSelectInput(session, "country3", choices = c("none", cc$country), selected = "Nigeria")
         
-        updateSelectInput(session, "country4", choices = c("select", cc$country), selected = "select")
+        updateSelectInput(session, "country4", choices = c("none", cc$country), selected = "Indonesia")
     })
     
     plotInput <- reactive({
@@ -105,61 +105,61 @@ server <- function(input, output, session) {
             p + theme_light() + 
                 scale_fill_brewer(name = c_title, palette = "Dark2", direction = -1) +
                 scale_colour_brewer(name = c_title, palette = "Dark2", direction = -1) +
-                theme(plot.caption = element_text(size = 7))
+                theme(plot.caption = element_text(size = 8))
         } else if (input$theme=="classic") {
             p + theme_classic() + 
                 scale_fill_discrete(name = c_title) + 
                 scale_colour_discrete(name = c_title) +
-                theme(plot.caption = element_text(size = 7))
+                theme(plot.caption = element_text(size = 8))
         } else if (input$theme=="tufte") {
             p + theme_tufte() + 
                 scale_fill_grey(name = c_title) + 
                 scale_colour_grey(name = c_title) +
-                theme(plot.caption = element_text(size = 7))
+                theme(plot.caption = element_text(size = 8))
         } else if (input$theme=="econ") {
             p + theme_economist() + 
                 scale_fill_economist(name = c_title) + 
                 scale_colour_economist(name = c_title) +
-                theme(plot.caption = element_text(size = 7))
+                theme(plot.caption = element_text(size = 8))
         } else if (input$theme=="fte") {
             p + theme_fivethirtyeight() + 
                 scale_fill_fivethirtyeight(name = c_title) + 
                 scale_colour_fivethirtyeight(name = c_title) +
-                theme(plot.caption = element_text(size = 7))
+                theme(plot.caption = element_text(size = 8))
         } else if (input$theme=="few") {
             p + theme_few() + 
                 scale_fill_few(name = c_title) + 
                 scale_colour_few(name = c_title) +
-                theme(plot.caption = element_text(size = 7))
+                theme(plot.caption = element_text(size = 8))
         } else if (input$theme=="sol") {
             p + theme_solarized() + 
                 scale_fill_solarized("blue", name = c_title) + 
                 scale_colour_solarized("blue", name = c_title) +
-                theme(plot.caption = element_text(size = 7))
+                theme(plot.caption = element_text(size = 8))
         } else if (input$theme=="stata") {
             p + theme_stata() + 
                 scale_fill_stata(name = c_title) + 
                 scale_colour_stata(name = c_title) +
-                theme(plot.caption = element_text(size = 7))
+                theme(plot.caption = element_text(size = 8))
         } else if (input$theme=="wsj") {
             p + theme_wsj() + 
                 scale_fill_wsj(name = c_title) + 
                 scale_colour_wsj(name = c_title) +
-                theme(plot.caption = element_text(size = 7))
+                theme(plot.caption = element_text(size = 8))
         } else if (input$theme=="hc") {
             p + theme_hc() + 
                 scale_fill_hc(name = c_title) + 
                 scale_colour_hc(name = c_title) +
-                theme(plot.caption = element_text(size = 7))
+                theme(plot.caption = element_text(size = 8))
         } else if (input$theme=="pander") {
             p + theme_pander() + 
                 scale_fill_pander(name = c_title) + 
                 scale_colour_pander(name = c_title) +
-                theme(plot.caption = element_text(size = 7))
+                theme(plot.caption = element_text(size = 8))
         } else {
             p + scale_fill_brewer(name = c_title, palette = "Dark2", direction = -1) +
                 scale_colour_brewer(name = c_title, palette = "Dark2", direction = -1) +
-                theme(plot.caption = element_text(size = 7))
+                theme(plot.caption = element_text(size = 8))
         }
         
     })
@@ -188,13 +188,13 @@ ui <- shinyUI(fluidPage(
     fluidRow(        
         column(3,
                
-               selectInput("country1", label="Country", "United States"), 
+               selectInput("country1", label="Country", "Norway"), 
                
-               selectInput("country2", label="Country", "select"),
+               selectInput("country2", label=NULL, "United States"),
                
-               selectInput("country3", label="Country", "select"),
+               selectInput("country3", label=NULL, "Nigeria"),
                
-               selectInput("country4", label="Country", "select"),
+               selectInput("country4", label=NULL, "Indonesia"),
                
                
                br(),
