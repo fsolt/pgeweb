@@ -1,0 +1,12 @@
+name: pgeweb
+title: pgeweb
+username:
+account: fsolt
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3434435
+bundleId: 4039269
+url: https://fsolt.shinyapps.io/pgeweb/
+when: 1609259368.50528
+asMultiple: FALSE
+asStatic: FALSE
