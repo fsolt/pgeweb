@@ -188,7 +188,7 @@ ui <- shinyUI(fluidPage(
     fluidRow(        
         column(3,
                
-               selectInput("country1", label="Country", "Norway"), 
+               selectInput("country1", label="Countries", "Norway"), 
                
                selectInput("country2", label=NULL, "United States"),
                
