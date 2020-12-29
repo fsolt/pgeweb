@@ -103,8 +103,13 @@ server <- function(input, output, session) {
         # Apply themes and add source
         if (input$theme=="light") {
             p + theme_light() + 
-                scale_fill_brewer(name = c_title, palette = "Dark2") +
-                scale_colour_brewer(name = c_title, palette = "Dark2") +
+                scale_fill_brewer(name = c_title, palette = "Dark2", direction = -1) +
+                scale_colour_brewer(name = c_title, palette = "Dark2", direction = -1) +
+                theme(plot.caption = element_text(size = 7))
+        } else if (input$theme=="classic") {
+            p + theme_classic() + 
+                scale_fill_discrete(name = c_title) + 
+                scale_colour_discrete(name = c_title) +
                 theme(plot.caption = element_text(size = 7))
         } else if (input$theme=="tufte") {
             p + theme_tufte() + 
@@ -152,8 +157,8 @@ server <- function(input, output, session) {
                 scale_colour_pander(name = c_title) +
                 theme(plot.caption = element_text(size = 7))
         } else {
-            p + scale_fill_brewer(name = c_title, palette = "Dark2") +
-                scale_colour_brewer(name = c_title, palette = "Dark2") +
+            p + scale_fill_brewer(name = c_title, palette = "Dark2", direction = -1) +
+                scale_colour_brewer(name = c_title, palette = "Dark2", direction = -1) +
                 theme(plot.caption = element_text(size = 7))
         }
         
@@ -201,6 +206,7 @@ ui <- shinyUI(fluidPage(
                selectInput("theme", "Theme", 
                            choices = list("Standard" = "none",
                                           "Light" = "light",
+                                          "Classic" = "classic",
                                           "Economist" = "econ",
                                           "Few" = "few",
                                           "FiveThirtyEight" = "fte",
